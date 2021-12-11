@@ -1,0 +1,23 @@
+class Solution:
+    def minKnightMoves(self, x: int, y: int) -> int:
+        if x == 0 and y == 0:
+            return 0
+        x = abs(x) 
+        y = abs(y)
+        queue = collections.deque([(0,0)])
+        visited = set((0, 0))
+        step = 0
+        while queue:
+            cur_len = len(queue)
+            step += 1
+            for _ in range(cur_len):
+                [x0, y0] = queue.popleft()
+                for dx, dy in ((-2, -1), (-2, 1), (-1, 2), (1, 2),(2, 1), (2, -1), (1, -2), (-1, -2)):
+                    nx = x0 + dx
+                    ny = y0 + dy
+                    if nx == x and ny == y:
+                        return step
+                    if (nx, ny) not in visited:
+                        if -5 <= nx <= x + 5 and -5 <= ny <= y + 5:
+                            queue.append((nx, ny))
+                            visited.add((nx, ny))
