@@ -1,0 +1,27 @@
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return 0
+        
+        left = 0 
+        right = len(nums) -1
+        
+        while left <= right:
+            mid = left + (right - left) // 2
+            # print(mid)
+            if mid == 0:
+                left_inf = float('-inf')
+                if nums[mid] > nums[mid +1] and nums[mid] > left_inf:
+                    return mid
+                
+            if mid + 1 > len(nums) -1:
+                right_inf = float('-inf')
+                if nums[mid] > right_inf and nums[mid] > nums[mid -1]:
+                    return mid
+                
+            if nums[mid] > nums[mid +1] and nums[mid] > nums[mid -1]:
+                return mid
+            if nums[mid] < nums[mid +1]:
+                left = mid+1
+            else:
+                right = mid-1
