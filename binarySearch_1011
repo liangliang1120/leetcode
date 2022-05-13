@@ -1,0 +1,24 @@
+class Solution:
+    def shipWithinDays(self, weights: List[int], days: int) -> int:
+        def f(weights, capacity):
+            cur = 0
+            days = 0
+            for i, weight in enumerate(weights):
+                if cur + weight <= capacity:
+                    cur += weight
+                else:
+                    cur = weight
+                    days += 1
+            return days + 1
+
+        left, right = max(weights), sum(weights) + 1
+        while left <= right:
+            mid = left + (right - left) // 2
+            need_days = f(weights, mid)
+            if need_days > days:
+                left = mid + 1
+            elif need_days < days:
+                right = mid - 1
+            elif need_days == days:
+                right = mid - 1
+        return left
