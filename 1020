@@ -1,0 +1,41 @@
+class Solution:
+    def numEnclaves(self, grid: List[List[int]]) -> int:
+        dirs = [[-1, 0],[1, 0],[0,-1],[0,1]]
+        def dfs(grid, i, j):
+            if grid[i][j] == 0:
+                # 已经是海水了
+                return
+            
+            grid[i][j] = 0
+            m = len(grid)
+            n = len(grid[0])
+            
+            for d in dirs:
+                next_i = i + d[0]
+                next_j = j + d[1]
+                if 0 <= next_i < m and 0 <= next_j < n and grid[next_i][next_j] == 1:
+                    # print(i,j,next_i,next_j)
+                    dfs(grid, next_i, next_j)
+        
+        res = 0
+        m = len(grid)
+        n = len(grid[0])
+        for i in range(m):
+            # 最左边
+            dfs(grid, i ,0)
+            # 最右边
+            dfs(grid, i ,n-1)
+            
+        for j in range(n):
+            # 上面的
+            dfs(grid, 0 ,j)
+            # 最下面
+            dfs(grid, m-1 ,j)
+            
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    res += 1
+                    # dfs(grid, i ,j)
+                    # print(i,j,grid)
+        return res
