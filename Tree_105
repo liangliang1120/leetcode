@@ -31,3 +31,30 @@ class Solution:
                                inorder, index + 1, inEnd)
         return root
         
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        valToIndex = {}
+        for i in range(len(inorder)):
+            valToIndex[inorder[i]] = i
+            
+        def build(preorder, preStart, preEnd, inorder, inStart, inEnd, valToIndex):
+            if preStart > preEnd:
+                return None
+            rootVal = preorder[preStart]
+            index = valToIndex[rootVal]
+            leftSize = index - inStart
+            
+            root = TreeNode(rootVal)
+            root.left = build(preorder, preStart + 1, preStart + leftSize, inorder, inStart, index - 1, valToIndex)
+            root.right = build(preorder, preStart + leftSize + 1, preEnd, inorder, index + 1, inEnd, valToIndex)
+            return root
+            
+        return build(preorder, 0, len(preorder) - 1, inorder, 0, len(inorder) - 1, valToIndex)
+    
