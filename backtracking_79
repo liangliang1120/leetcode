@@ -1,0 +1,34 @@
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        x = len(board)
+        y = len(board[0])
+        directions = [[0, 1], [-1, 0], [0, -1], [1, 0]]
+        word_list = list(word)
+        used = [[False for i in range(y)] for j in range(x)] 
+        
+        def backtracking(word_index, i, j):
+            if board[i][j] != word_list[word_index]:
+                return False
+            
+            if word_index == len(word_list) - 1:
+                return True
+            used[i][j] = True
+            result = False         
+            for di, dj in directions:
+                new_i = i + di
+                new_j = j + dj
+                if 0 <= new_i < x and 0 <= new_j < y:
+                    if not used[new_i][new_j]:
+                        if backtracking(word_index + 1, new_i, new_j):
+                            result = True
+                            break
+            used[i][j] = False
+            return result
+
+        for i in range(x):
+            for j in range(y):
+                # track.append(board[i][j])
+                # used[i][j] = True
+                if backtracking( 0, i, j):
+                    return True
+        return False
