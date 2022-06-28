@@ -1,0 +1,35 @@
+175. Combine Two Tables
+Select firstName, lastName, city, state 
+From Person left Join Address
+on Person.personId = Address.personId;
+
+
+176. Second Highest Salary
+select 
+(
+    select DISTINCT salary from Employee order by salary desc limit 1 OFFSET 1
+) 
+as SecondHighestSalary
+-- OFFSET 1 表示查到的信息跳过1条
+
+
+177. Nth Highest Salary 写函数
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+DECLARE M INT;
+SET M = N - 1;
+  RETURN (
+      # Write your MySQL query statement below.
+        select DISTINCT salary from Employee order by salary desc limit 1 OFFSET M
+  );
+END
+
+
+178. Rank Scores. 
+-- MySQL里面自定义变量用@做引导符，“:=”用来给变量rank赋值
+select t.score score,t.rank 'rank' from scores join
+    (SELECT p.score score , @rank:=@rank+1 'rank' FROM 
+        (SELECT distinct(score) score FROM Scores ORDER BY score DESC) p , (SELECT @rank:=0 ) q
+    ) t
+on scores.score = t.score
+order by score desc
