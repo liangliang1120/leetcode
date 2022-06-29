@@ -33,3 +33,10 @@ select t.score score,t.rank 'rank' from scores join
     ) t
 on scores.score = t.score
 order by score desc
+
+-- self join 有多少distinct score小于等于当前score
+SELECT a.score, COUNT(DISTINCT b.score) AS `rank`
+FROM Scores a join Scores b
+WHERE a.score <= b.score
+GROUP BY a.id
+ORDER BY `rank`;
