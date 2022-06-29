@@ -40,3 +40,16 @@ FROM Scores a join Scores b
 WHERE a.score <= b.score
 GROUP BY a.id
 ORDER BY `rank`;
+
+
+180. Consecutive Numbers
+-- 三表关联，where id递增
+select distinct tb1.num ConsecutiveNums 
+from Logs tb1 join logs tb2 join logs tb3
+where tb1.id = tb2.id - 1
+and tb2.id = tb3.id - 1
+and tb1.num = tb2.num
+and tb2.num = tb3.num
+
+
+
