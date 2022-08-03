@@ -1,0 +1,30 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+        self.res = float('inf')
+        self.ter = root
+        self.flag = 0
+        def preorder(root):
+            if root is None:
+                return 
+            if root.val > p.val and root.val < self.res:
+                self.res = root.val
+                self.ter = root
+                self.flag = 1
+
+            if root.val > p.val:
+                preorder(root.left)
+            else:
+                preorder(root.right)
+            
+        preorder(root)
+        if self.flag == 1:
+            return self.ter
+        else:
+            return None

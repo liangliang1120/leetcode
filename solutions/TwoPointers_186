@@ -1,0 +1,29 @@
+class Solution:
+    def reverseWords(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+
+        left = 0
+        right = len(s) - 1
+        while left <= right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
+        
+        # print(111,s)
+        i = 0
+        while(i < len(s)):
+            left = i
+            right = i
+            while  right < len(s) and (right < len(s) - 1 and s[right + 1] != ' ' ):
+                right += 1
+            temp = right
+            # print(left, right,s)
+            while left <= right:
+                s[left], s[right] = s[right], s[left]
+                left += 1
+                right -= 1
+            i = temp + 2
+
+两次翻转：一次全部翻转，一次翻转单词       

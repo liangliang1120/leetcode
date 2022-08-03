@@ -1,0 +1,22 @@
+class BSTIterator:
+
+    def __init__(self, root: Optional[TreeNode]):
+        self.idx = 0
+        self.arr = []
+        self.inorderTraverse(root)
+
+    def next(self) -> int:
+        temp = self.arr[self.idx]
+        self.idx += 1
+        return temp
+        
+
+    def hasNext(self) -> bool:
+         return self.idx < len(self.arr)
+        
+    def inorderTraverse(self, root):
+        if not root:
+            return 
+        self.inorderTraverse(root.left)
+        self.arr.append(root.val)
+        self.inorderTraverse(root.right)
