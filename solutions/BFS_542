@@ -1,0 +1,23 @@
+class Solution:
+    def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+        row, col = len(mat), len(mat[0])
+        q = collections.deque()
+        visited = set()
+        for i in range(row):
+            for j in range(col):
+                if mat[i][j] == 0:
+                    q.append((i, j))
+                    visited.add((i, j))
+        level = 0
+        while q:
+            level += 1
+            size = len(q)
+            for _ in range(size):
+                (x, y) = q.popleft()
+                for dx, dy in [(0,1),(0,-1),(1,0),(-1,0)]:
+                    nx, ny = x + dx, y + dy
+                    if 0<= nx<row and 0 <= ny < col and (nx, ny) not in visited:
+                        q.append((nx, ny))
+                        visited.add((nx,ny))
+                        mat[nx][ny] = level
+        return mat

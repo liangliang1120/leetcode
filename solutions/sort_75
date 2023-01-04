@@ -1,0 +1,25 @@
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        # n = len(nums)
+        # ptr = 0
+        # for i in range(n):
+        #     if nums[i] == 0:
+        #         nums[i], nums[ptr] = nums[ptr], nums[i]
+        #         ptr += 1
+        # for i in range(ptr, n):
+        #     if nums[i] == 1:
+        #         nums[i], nums[ptr] = nums[ptr], nums[i]
+        #         ptr += 1
+        
+        for j in range(len(nums) - 1):
+            has_swap_flag = 0
+            for i in range(0, len(nums) - j - 1):
+                if nums[i] > nums[i + 1]:
+                    nums[i], nums[i + 1] = nums[i + 1], nums[i]
+                    has_swap_flag = 1
+
+            if has_swap_flag == 0:
+                break

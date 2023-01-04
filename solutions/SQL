@@ -1,0 +1,89 @@
+175. Combine Two Tables
+Select firstName, lastName, city, state 
+From Person left Join Address
+on Person.personId = Address.personId;
+
+
+176. Second Highest Salary
+select 
+(
+    select DISTINCT salary from Employee order by salary desc limit 1 OFFSET 1
+) 
+as SecondHighestSalary
+-- OFFSET 1 表示查到的信息跳过1条
+
+
+177. Nth Highest Salary 写函数
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+DECLARE M INT;
+SET M = N - 1;
+  RETURN (
+      # Write your MySQL query statement below.
+        select DISTINCT salary from Employee order by salary desc limit 1 OFFSET M
+  );
+END
+
+
+178. Rank Scores. 
+-- MySQL里面自定义变量用@做引导符，“:=”用来给变量rank赋值
+select t.score score,t.rank 'rank' from scores join
+    (SELECT p.score score , @rank:=@rank+1 'rank' FROM 
+        (SELECT distinct(score) score FROM Scores ORDER BY score DESC) p , (SELECT @rank:=0 ) q
+    ) t
+on scores.score = t.score
+order by score desc
+
+-- self join 有多少distinct score小于等于当前score
+SELECT a.score, COUNT(DISTINCT b.score) AS `rank`
+FROM Scores a join Scores b
+WHERE a.score <= b.score
+GROUP BY a.id
+ORDER BY `rank`;
+
+
+180. Consecutive Numbers
+-- 三表关联，where id递增
+select distinct tb1.num ConsecutiveNums 
+from Logs tb1 join logs tb2 join logs tb3
+where tb1.id = tb2.id - 1
+and tb2.id = tb3.id - 1
+and tb1.num = tb2.num
+and tb2.num = tb3.num
+
+
+
+183. Customers Who Never Order
+# Write your MySQL query statement below
+SELECT name Customers FROM Customers 
+WHERE id not in (
+SELECT c.id FROM Customers c INNER JOIN Orders o
+ON c.id = customerId ) 
+
+
+1179. Reformat Department Table
+SELECT id, 
+SUM(CASE WHEN month='Jan' THEN revenue END) AS Jan_Revenue,
+SUM(CASE WHEN month='Feb' THEN revenue END) AS Feb_Revenue,
+SUM(CASE WHEN month='Mar' THEN revenue END) AS Mar_Revenue,
+SUM(CASE WHEN month='Apr' THEN revenue END) AS Apr_Revenue,
+SUM(CASE WHEN month='May' THEN revenue END) AS May_Revenue,
+SUM(CASE WHEN month='Jun' THEN revenue END) AS Jun_Revenue,
+SUM(CASE WHEN month='Jul' THEN revenue END) AS Jul_Revenue,
+SUM(CASE WHEN month='Aug' THEN revenue END) AS Aug_Revenue,
+SUM(CASE WHEN month='Sep' THEN revenue END) AS Sep_Revenue,
+SUM(CASE WHEN month='Oct' THEN revenue END) AS Oct_Revenue,
+SUM(CASE WHEN month='Nov' THEN revenue END) AS Nov_Revenue,
+SUM(CASE WHEN month='Dec' THEN revenue END) AS Dec_Revenue
+FROM department
+GROUP BY id
+ORDER BY id;
+
+
+
+1729. Find Followers Count
+select user_id, count(follower_id) followers_count
+from Followers
+group by user_id
+order by user_id
+

@@ -1,0 +1,12 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        for i in range(len(nums) - 1):
+            min_temp = float("inf")
+            min_temp_index = 0
+            for j in range(i , len(nums)):
+                if min_temp > nums[j]:
+                    min_temp = nums[j]
+                    min_temp_index = j
+            if nums[i] > nums[min_temp_index]:
+                nums[i], nums[min_temp_index] = nums[min_temp_index], nums[i]
+        return nums[len(nums) // 2]

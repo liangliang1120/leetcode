@@ -1,0 +1,80 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+import collections
+from typing import List
+class Codec:
+    def __init__(self):
+        self.res = []
+
+    def serialize(self, root):
+        """Encodes a tree to a single string.
+        
+        :type root: TreeNode
+        :rtype: str
+        """
+        res = []
+        queue = []
+        queue.append(root)
+        while queue:
+            cur = queue.pop(0)
+            if not cur:
+                res.append(None)
+                continue
+            res.append(cur.val)
+            queue.append(cur.left)
+            queue.append(cur.right)
+        return ','.join([str(x) for x in res])
+        
+   
+        
+
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+        
+        :type data: str
+        :rtype: TreeNode
+        """
+        if len(data) == 0:
+            return None
+        
+        data = [None if ele =='None' else int(ele) for ele in data.split(",")]
+
+        if data[0] == None:
+            root = None
+        else:
+            root = TreeNode(data[0])
+        queue = []
+        queue.append(root)
+        
+        i = 1
+        while i < len(data):
+            parent = queue.pop(0)
+            
+            left = data[i]
+            i = i + 1
+            if left == None:
+                parent.left = None
+            else:
+                parent.left = TreeNode(left)
+                queue.append(parent.left)
+            
+            
+            right = data[i]
+            i = i + 1
+            if right == None:
+                parent.right = None
+            else:
+                parent.right = TreeNode(right)
+                queue.append(parent.right)
+
+        return root
+
+
+# Your Codec object will be instantiated and called as such:
+# ser = Codec()
+# deser = Codec()
+# ans = deser.deserialize(ser.serialize(root))

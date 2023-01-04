@@ -1,0 +1,29 @@
+class Solution:
+    def getFood(self, grid: List[List[str]]) -> int:
+        row, col = len(grid), len(grid[0])
+        visited = set()
+        q = collections.deque()
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == '*':
+                    q.append((i,j))
+                    visited.add((i, j))
+
+        level = 0
+        while q:
+            level += 1
+            size = len(q)
+            for _ in range(size):
+                (x, y) = q.popleft()
+                for dx, dy in [(0,1),(0,-1),(1,0),(-1,0)]:
+                    nx, ny = x + dx, y + dy
+                    if 0 <= nx < row and 0 <= ny < col and (nx, ny) not in visited:
+                        # print(nx,ny)
+                        if grid[nx][ny] == "O":
+                            q.append((nx, ny))
+                            visited.add((nx, ny))
+                        if grid[nx][ny] == "#":
+                            return level
+                # print(q,visited)
+        return -1
+

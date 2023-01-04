@@ -1,0 +1,55 @@
+# Dijkstra
+# class Solution:
+#     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+#         # use adjacency matrix create graph
+#         graph = [[float('inf')] * n for _ in range(n)]
+#         for x, y, time in times:
+#             graph[x - 1][y - 1] = time
+            
+#         # dist[X]: minium distcance from start node to nodeX
+#         dist = [float('inf')] * n
+#         # start node
+#         dist[k - 1] = 0
+        
+#         # visited nodes
+#         visited = [False] * n
+        
+#         for _ in range(n):
+#             # find the minimum distance and not visited node 
+#             x = -1
+#             for y, v in enumerate(visited):
+#                 if not v and (x == -1 or dist[y] < dist[x]):
+#                     x = y
+                    
+#             # update x as visted
+#             visited[x] = True
+            
+#             # use the minimum dist[x] to update other nodes
+#             for y, time in enumerate(graph[x]):
+#                 dist[y] = min(dist[y], dist[x] + time)
+
+#         # print(dist)
+#         # consider max delay time
+#         ans = max(dist)
+#         return ans if ans < float('inf') else -1
+
+
+# bellman-ford
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        dist = {node: float('inf') for node in range(1,n + 1)}
+        dist[k] = 0
+        for _ in range(n-1):
+            for u,v,w in times:
+                # update if distance become less
+                dist[v] = min(dist[v], dist[u] + w)
+        res = max(dist.values())
+        return res if res != float('inf') else -1  
+        
+
+        
+
+
+        
+
+

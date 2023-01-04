@@ -1,0 +1,94 @@
+'''
+least recency used
+hashtable  
+
+双向链表 Double linked list
+left: LRU, right:most recently used
+put get O(1)
+space O(capacity)
+'''
+
+class ListNode:
+    def __init__(self, key=None, value=None):
+        self.key = key
+        self.value = value
+        self.prev = None
+        self.next = None
+
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.capacity = capacity
+        self.hashmap = {} # map key to node
+        # 新建两个节点 head 和 tail
+        self.head = ListNode() # least recent
+        self.tail = ListNode() # most recent
+        # 初始化链表为 head <-> tail 互相连接 two dummy
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    # 因为get与put操作都可能需要将双向链表中的某个节点移到头部(变成最新访问的)，所以定义一个方法
+    def move_node_to_header(self, key):
+            # 先将哈希表key指向的节点拎出来，为了简洁起名node
+            #      hashmap[key]                               hashmap[key]
+            #           |                                          |
+            #           V              -->                         V
+            # prev <-> node <-> next         pre <-> next   ...   node
+            node = self.hashmap[key]
+            node.prev.next = node.next #原本前面指向自己的，指到后面去
+            node.next.prev = node.prev #原本后面指向自己的，指到前面去
+            # 之后将node插入到头部节点前
+            #                   hashmap[key]                     hashmap[key]
+            #                       |                                 |
+            #                       V        -->                      V
+            # header <-> next  ... node                   header <-> node <-> next
+            node.prev = self.head
+            node.next = self.head.next
+            self.head.next.prev = node
+            self.head.next = node
+            
+    def add_node_to_header(self, key,value):
+        new = ListNode(key, value)
+        self.hashmap[key] = new
+        new.prev = self.head
+        new.next = self.head.next
+        self.head.next.prev = new
+        self.head.next = new
+        
+    def pop_tail(self):
+        last_node = self.tail.prev
+        # 去掉链表尾部的节点在哈希表的对应项
+        self.hashmap.pop(last_node.key)
+        # 去掉最久没有被访问过的节点，即尾部Tail之前的一个节点
+        last_node.prev.next = self.tail
+        self.tail.prev = last_node.prev
+        return last_node
+    
+    def get(self, key: int) -> int:
+        
+        if key in self.hashmap:
+            # 如果已经在链表中了久把它移到头部（变成最新访问的）
+            self.move_node_to_header(key) #help func
+        res = self.hashmap.get(key, -1) #如果key不存在  返回-1
+        if res == -1:
+            return res
+        else:
+            return res.value
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.hashmap:
+            # 如果key本身已经在哈希表中了就不需要在链表中加入新的节点
+            # 定位，修改node value，（因为可能向2存4）
+            self.hashmap[key].value = value
+            # 之后将该节点移到链表头部
+            self.move_node_to_header(key)
+        else:
+            if len(self.hashmap) >= self.capacity:
+            # 若cache容量已满，删除cache中最不常用的节点 
+                self.pop_tail()
+            self.add_node_to_header(key,value)
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)

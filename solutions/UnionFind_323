@@ -1,0 +1,37 @@
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        uf = UF(n)
+        for e in edges:
+            uf.union(e[0], e[1])
+        return uf.count
+
+class UF:
+    def __init__(self, n):
+        self.count = n # 连通分量个数
+        self.parent = [] # 存储每个节点的父节点
+        for i in range(n):
+            self.parent.append(i)
+    
+    def union(self, p, q):
+        # 将节点 p 和节点 q 连通
+        rootP = self.find(p)
+        rootQ = self.find(q)
+        if (rootP == rootQ):
+            return
+        self.parent[rootQ] = rootP
+        self.count = self.count - 1
+
+    def connected(self, p, q):
+        # 判断节点 p 和节点 q 是否连通
+        rootP = self.find(p)
+        rootQ = self.find(q)
+        return rootP == rootQ
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    # def count(self):
+    #     # 返回图中的连通分量个数
+    #     return self.count

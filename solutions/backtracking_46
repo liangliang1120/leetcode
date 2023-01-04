@@ -1,0 +1,49 @@
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        track = [] #记录路径
+        used = [False] * len(nums) #标记路径，避免重复
+
+        def backtrack(nums, track, used):
+            if len(track) == len(nums):
+                res.append(track[:])
+                print(res)
+                return
+            for i in range(len(nums)):
+                if used[i]:
+                    continue
+                track.append(nums[i])
+                used[i] = True
+                backtrack(nums, track, used)
+                track.pop() # 默认最后一个元素
+                used[i] = False
+        res = []
+        backtrack(nums, track,used)
+        return res
+        
+        
+#         def backtrack(first = 0):
+#             if first == n:
+#                 res.append(nums[:])
+#             for i in range(first, n):
+#                 nums[first], nums[i] = nums[i], nums[first]
+#                 backtrack(first + 1)
+#                 nums[first], nums[i] = nums[i], nums[first]
+                
+#         n = len(nums)
+#         res = []
+#         backtrack()
+#         return res
+
+
+
+        
+#         res = []
+#         def backtrack(nums, tmp):
+#             if not nums:
+#                 res.append(tmp)
+#                 return 
+#             for i in range(len(nums)):
+#                 backtrack(nums[:i] + nums[i+1:], tmp + [nums[i]])
+                
+#         backtrack(nums, [])
+#         return res

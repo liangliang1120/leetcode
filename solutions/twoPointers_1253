@@ -1,0 +1,21 @@
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        if not intervals:
+            return 0
+        used_rooms = 0
+        # 开始时间
+        start_timings = sorted([i[0] for i in intervals])
+        # 结束时间
+        end_timings = sorted(i[1] for i in intervals)
+        L = len(intervals)
+        end_pointer = 0
+        start_pointer = 0
+        while start_pointer < L:
+            # 每次循环，start指针+1，room+1
+            used_rooms += 1
+            start_pointer += 1
+            # 如果有开始时间 >= 结束时间的，end指针+1,room+1
+            if start_timings[start_pointer] >= end_timings[end_pointer]:
+                used_rooms -= 1
+                end_pointer += 1  
+        return used_rooms

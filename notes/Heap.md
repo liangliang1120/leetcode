@@ -1,0 +1,41 @@
+- 见到数组要想到先排序.
+- 见到集合求Min/max 就用堆
+- 见到需要维护一个集合的最小值/最大值的时候要想到用堆.
+- 第k小的元素，Heap用来维护当前候选集合.
+- 
+- heappush(heap,n)数据堆入，最小堆
+- heappop(heap)将数组堆中的最小元素弹出
+- heapify(heap) 将heap属性强制应用到任意一个列表
+- heapreplace(heap，n)弹出最小的元素被n替代
+- nlargest(n,iter)、nsmallest(n,iter)
+- Return a list with the n largest elements from the dataset defined by iterable.Equivalent to: sorted(iterable, key=key, reverse=True)[:n].
+
+### 973. [K Closest Points to Origin](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_973.py)
+- 所有的距离加进heap， hp=[]， hp.append(), heapify(hq)
+- while k>0:加前k个进res
+- time:O(nlogn) 也可以只维护前k个O(nlogk)
+- space: O(N),只维护k个的话O(k)
+
+### 215. [Kth Largest Element in an Array](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_215.py)
+- 
+
+
+### 239. [Sliding Window Maximum](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_239.py)
+- (负数，idx)加进q，先只加k个进去，heapify.  
+- 然后用heap维护window，加进push一个，
+- ans初始化-q[0][0],right_pointer从k开始向右走，heapq.heappush(q, (负数，idx))，
+- while idx <= i-k,heappop弹出更大且idx在前面的,只剩下windows内的最大值
+- 每次循环ans加q中windows内的最大的
+- time O(nlogn) space O(n)
+
+### 912. [Sort an Array](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_912.py)
+
+### 253. [Meeting Rooms II](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_253.py)
+- 先排序 key = lambda x: x[0]
+- 最早结束的时间加进q   heapq.heappush(free_rooms, intervals[0][1])
+- 从第二个开始遍历，if开始时间 晚于 上一个结束时间:pop-heapq.heappop(free_rooms)。加当前的结束时间。
+- 返回heap内的个数-即房间数
+
+
+
+

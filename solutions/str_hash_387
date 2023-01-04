@@ -1,0 +1,19 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        frequency = {}
+        nums = list(s)
+        for i in range(len(nums)):
+            if nums[i] not in frequency:
+                frequency[nums[i]] = 1
+            else:
+                frequency[nums[i]] += 1
+
+        val = 0
+        for v, f in frequency.items():
+            if f == 1:
+                val = v
+                break
+        for i in range(len(nums)):
+            if nums[i] == val:
+                return i
+        return -1

@@ -1,0 +1,11 @@
+class Solution:
+    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
+        ans, mp = [], dict()
+        for i, v in enumerate(groupSizes):
+            if not v in mp or len(ans[mp[v]]) == v:
+                mp[v] = len(ans)
+                ans.append([i])
+            else:
+                ans[mp[v]].append(i)
+        print(mp,ans)
+        return ans

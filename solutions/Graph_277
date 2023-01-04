@@ -1,0 +1,22 @@
+# The knows API is already defined for you.
+# return a bool, whether a knows b
+# def knows(a: int, b: int) -> bool:
+
+class Solution:
+    def findCelebrity(self, n: int) -> int:
+        # step 1: candidate 可能是名人，因为ta不认识所有人，如果ta认识别人，candidate就赋值为被认识的人
+        # 只能保证candidate不认识除了0之外的人，不能保证是否认识0，
+        # 也不能保证其他人都认识candidate
+        candidate = 0
+        for node in range(n):
+            if knows(candidate, node):
+                candidate = node
+                
+        # step 2: 再次循环所有人，是自己肯定认识，有人不认识ta 或 ta认识别人，ta就不是名人
+        for node in range(n):
+            if node == candidate:
+                continue
+            if not knows(node, candidate) or knows(candidate, node):
+                return -1
+            
+        return candidate

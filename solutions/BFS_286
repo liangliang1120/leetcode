@@ -1,0 +1,23 @@
+class Solution:
+    def wallsAndGates(self, rooms: List[List[int]]) -> None:
+        """
+        Do not return anything, modify rooms in-place instead.
+        """
+        row, col = len(rooms), len(rooms[0])
+        q = collections.deque()
+        for i in range(row):
+            for j in range(col):
+                if rooms[i][j] == 0:
+                    q.append((i, j))
+        level = 0
+        while q:
+            level += 1
+            size = len(q)
+            for _ in range(size):
+                (x, y) = q.popleft()
+                for dx, dy in [(0,1),(0,-1),(1,0),(-1,0)]:
+                    nx, ny = x + dx, y + dy
+                    if 0 <= nx < row and 0 <= ny <col and rooms[nx][ny] == 2147483647:
+                        q.append((nx, ny))
+                        rooms[nx][ny] = level
+
