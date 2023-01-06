@@ -51,5 +51,14 @@
 - dp[i] = min(dp[i], dp[i-coin] + 1)
 
 
-- 
-- 
+### 152. [Maximum Product Subarray](https://github.com/liangliang1120/leetcode/blob/main/solutions/dp_152.py)
+- subarray要是连续的 
+- brute force O(n^2)
+- 分情况，根据正负性讨论 keep tracking both positive and negative, keep the max and the min
+- 使用前一位的max and min keep current the max and the min
+- edge case: 0; reset our max and min to 1
+
+
+
+
+
