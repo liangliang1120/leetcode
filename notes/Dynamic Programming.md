@@ -57,6 +57,9 @@
 - 分情况，根据正负性讨论 keep tracking both positive and negative, keep the max and the min
 - 使用前一位的max and min keep current the max and the min
 - edge case: 0; reset our max and min to 1
+- curMax = max(n * curMax, n * curMin, n)
+- curMin = min(tmp, n * curMin, n)
+- O(n) O(1)
 
 
 
