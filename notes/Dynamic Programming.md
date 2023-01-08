@@ -61,6 +61,9 @@
 - curMin = min(tmp, n * curMin, n)
 - O(n) O(1)
 
+### 300. [Longest Increasing Subsequence](https://github.com/liangliang1120/leetcode/blob/main/solutions/dp_300.py)
+- subsequence不用连续
+- brute force: 每个元素是否包含在subsequence中，使得subsequence increase，每个元素判断是或否， O(n^2)
 
 
 
