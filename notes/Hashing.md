@@ -35,7 +35,7 @@ key is the frequency, value is the numbers
 Time: O(n), Space: O(n)
 
 
-## [238. Product of Array Except Self](https://github.com/liangliang1120/leetcode/blob/main/solutions/238. Product of Array Except Self.py)
+## [238. Product of Array Except Self](https://github.com/liangliang1120/leetcode/blob/main/solutions/238Product of Array Except Self.py)
 compute the prefix and postfix and then get the outcome
 Time: O(n), Space: O(n)
 
