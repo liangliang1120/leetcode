@@ -67,3 +67,12 @@ time O(n(k+26))
         
 #         return list(mp.values())
 
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        hashmap = collections.defaultdict(list)
+        for w in strs:
+            sorted_w = sorted(w)
+            # print("".join(sorted_w))
+            hashmap["".join(sorted_w)].append(w)
+        return list(hashmap.values())
+
