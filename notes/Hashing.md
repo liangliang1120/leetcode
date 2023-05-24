@@ -35,6 +35,10 @@ key is the frequency, value is the numbers
 Time: O(n), Space: O(n)
 
 
+## [238. Product of Array Except Self](https://github.com/liangliang1120/leetcode/blob/main/solutions/238. Product of Array Except Self.py)
+compute the prefix and postfix and then get the outcome
+Time: O(n), Space: O(n)
+
 ## 133clone graph
 如果该节点已经被访问过了，则直接从哈希表中取出对应的克隆节点返回;
 克隆节点，注意到为了深拷贝我们不会克隆它的邻居的列表 // 哈希表存储 // 遍历该节点的邻居并更新克隆节点的邻居列表
