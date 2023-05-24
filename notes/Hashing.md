@@ -26,6 +26,14 @@ time O(N^2) space(N)
 
 ## 49 [Group Anagrams](https://github.com/liangliang1120/leetcode/blob/main/solutions/Sort_49.py)
 defaultdict（list)  "".join(sorted(list(s))) mp[key].append(s),time O(nklogk) space O(nk) 字符串数量，k字符串最大长度
+brute force Time:O(m*nlogn)
+26 characters:
+time: O(mn26),M is the number of words,n is the average length of a word,
+
+## 347 [Top K Frequent Elements](https://github.com/liangliang1120/leetcode/blob/main/solutions/347Top_K_Frequent_Elements.py)
+key is the frequency, value is the numbers
+Time: O(n), Space: O(n)
+
 
 ## 133clone graph
 如果该节点已经被访问过了，则直接从哈希表中取出对应的克隆节点返回;
