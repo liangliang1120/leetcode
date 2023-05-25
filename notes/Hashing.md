@@ -10,9 +10,11 @@ hash:O(n) O(n)
 set,if i-1 in set:continue else:while i+1 in set:curr_len+1,max(curr_len,max_len),return max_len
 
 ## [1. Two Sum](https://github.com/liangliang1120/leetcode/blob/main/solutions/hashing_1)
-存hashtable for i,n in enumerate(nums): if target - n in hashtable:return [hash[target - n],i]
-{n:i}
-time O(n) space O(n)
+- 存hashtable {num:index}
+- for i,n in enumerate(nums): 
+- if target - n in hashtable:
+- return [hash[target - n],i]
+- time O(n) space O(n)
 
 ## 3 sum
 i 循环 右边部分开头左指针， 结束右指针，
