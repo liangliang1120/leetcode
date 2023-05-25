@@ -35,6 +35,25 @@ key is the frequency, value is the numbers
 Time: O(n), Space: O(n)
 
 
+## [36. Valid Sudoku](https://github.com/liangliang1120/leetcode/blob/main/solutions/36ValidSudoku.py)
+Each row must contain the digits 1-9 without repetition.
+Each column must contain the digits 1-9 without repetition.
+Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+define 3 rules as defaultdict(set)
+for r in range(9):
+    for c in range(9):
+        if n in 3 rules:
+            return false
+        add n to 3 rules
+Time: O(n), Space: O(n)        
+
+## [128. Longest Consecutive Sequence](https://github.com/liangliang1120/leetcode/blob/main/solutions/128LongestConsecutiveSequence)
+sort: O(nlogn)
+hashset: if n in set: start the sequence,then find out the length of the sequence. Time:O(n), Space: O(n)
+
+
+
+
 ## [238. Product of Array Except Self](https://github.com/liangliang1120/leetcode/blob/main/solutions/238ProductofArrayExceptSelf.py)
 compute the prefix and postfix and then get the outcome
 Time: O(n), Space: O(n)
