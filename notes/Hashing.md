@@ -31,7 +31,7 @@ time O(N^2) space(N)
 - defaultdict（list)  "".join(sorted(list(s))) 
 - mp[key].append(s),time O(nklogk) space O(nk) 字符串数量，k字符串最大长度
 - -
-- 26 characters: key is the []*26, each digit represent the a-z
+- 26 characters: key is the [0]*26, each digit represent the a-z [!!!tuple the list as the dict key]
 - time: O(mn26),M is the number of words,n is the average length of a word,
 
 ## 347 [Top K Frequent Elements](https://github.com/liangliang1120/leetcode/blob/main/solutions/347Top_K_Frequent_Elements.py)
