@@ -10,3 +10,16 @@
 - right pointer move
 - if has repeating character, left pointer move to right util no repeating character (the right pointer value) inside of the substring
 - Time: O(n), Space: O(n)
+
+### [424. Longest Repeating Character Replacement](https://github.com/liangliang1120/leetcode/blob/main/solutions/424LongestRepeatingCharacterReplacement.py)
+- condition: windowsize - count(x) <= k
+- if meet the condition: right pointer move a step to right
+- if do not meet the condition: left pointer move a step to right
+- update count(s[pointer]) first, then move the pointer
+- windowsize can be counted each time pointer moves, or use (r - l + 1) then max(windowsize, r - l + 1)
+- Time: O(n), Space: O(1)
+
+### [567. Permutation in String](https://github.com/liangliang1120/leetcode/blob/main/solutions/567PermutationinString.py)
+- use[0,0,...0] [num]*26 to present the slidingwidow's character number
+- keep the slidingwindow size as s1, move the window to right, compare the [num]*26
+- Time: O(n), Space: O(1)
