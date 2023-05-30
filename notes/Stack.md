@@ -1,8 +1,16 @@
-### 20. [Valid Parentheses](https://github.com/liangliang1120/leetcode/blob/main/solutions/Stack_20.py)
-input只有括号，if len不被2整除 false。pair = {")": "(", "]":"[", "}":"{"} 
-循环每个character,如果ch in pair,if not stack or stack[-1] != pair[ch]:false（没有前半个括号 或者 最近的括号不匹配
-pop;如果ch not in pair,stack.append.  return not stack
+### [20. Valid Parentheses](https://github.com/liangliang1120/leetcode/blob/main/solutions/20ValidParentheses.py)
+- if stack and stack[-1] == hashmap[s[i]]: stack.pop() else: return False
+- input只有括号，if len不被2整除 false。pair = {")": "(", "]":"[", "}":"{"} 
+- 循环每个character,如果ch in pair,if not stack or stack[-1] != pair[ch]:false（没有前半个括号 或者 最近的括号不匹配
+- pop;如果ch not in pair,stack.append.  return not stack
+- Time: O(n), Space: O(n)
 
+### [155. Min Stack](https://github.com/liangliang1120/leetcode/blob/main/solutions/155MinStack.py)
+- use another min_stack to track the min number, only record the minimum
+- 2 tips
+- - if not self.min_stack or x <= self.min_stack[-1]: min_stack.append(x) | (<=) to record each min number,if 2 min number
+- - x = stack.pop();  if min_stack[-1] == x: | use the x value here(need to pop the num no matter it's min or in the middle of min_stack)
+- Time: O(1), Space: O(n)
 
 ### 1628. [Design an Expression Tree With Evaluate Function](https://github.com/liangliang1120/leetcode/blob/main/solutions/Stack_1628.py)
 
