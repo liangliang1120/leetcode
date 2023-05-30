@@ -18,6 +18,15 @@
 - - return int(stack[-1]) (int datastructure type)
 - Time: O(n), Space: O(n)
 
+### [22. Generate Parentheses](https://github.com/liangliang1120/leetcode/blob/main/solutions/22GenerateParentheses.py)
+- all combinations: backtrack
+- use a stack as the temp
+- 3 conditions in backtrack: （Parallel， each time in a backtrack should check 3 conditions)
+- - 1. left = right = n: add the stack to res
+- - 2. close parentheses < open parentheses: add close parentheses
+- - 3. open parentheses < n: can add open parentheses
+- Time: O((4^n)/(n^0.5)), Space: O(n) [Time:.., Space: for stack]
+
 ### 1628. [Design an Expression Tree With Evaluate Function](https://github.com/liangliang1120/leetcode/blob/main/solutions/Stack_1628.py)
 
 
