@@ -12,6 +12,12 @@
 - - x = stack.pop();  if min_stack[-1] == x: | use the x value here(need to pop the num no matter it's min or in the middle of min_stack)
 - Time: O(1), Space: O(n)
 
+### [150. Evaluate Reverse Polish Notation](https://github.com/liangliang1120/leetcode/blob/main/solutions/150EvaluateReversePolishNotation.py)
+- 2 tips
+- - truncates toward zero: int(x/y)
+- - return int(stack[-1]) (int datastructure type)
+- Time: O(n), Space: O(n)
+
 ### 1628. [Design an Expression Tree With Evaluate Function](https://github.com/liangliang1120/leetcode/blob/main/solutions/Stack_1628.py)
 
 
