@@ -37,7 +37,7 @@
 
 ### [853. Car Fleet](https://github.com/liangliang1120/leetcode/blob/main/solutions/853CarFleet.py)
 - how to check if intersection: what time does each car going to the destination
-- start from right and iterate by the reverse order: because we cannot know a car can keep the speed all the time later
+- start from right and iterate by the reverse order: because we cannot know a car can keep the speed all the time later,sort the position
 - if the left car take less time to destination than righter car: they will become a car fleet
 - list [position, speed] data structure, reverse the list, add the right car in advance, 
 - iterate the car from right to left adding into stack if left car takes less time, pop it
