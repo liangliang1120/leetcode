@@ -1,6 +1,8 @@
 ### [78. Subsets](https://github.com/liangliang1120/leetcode/blob/main/solutions/78Subsets.py)
 - number of subsets: 2^n, 2 to the power of n,but we need the subsets themself *n here, because each length of res need time
 - 2 conditions: 1. add the nums[i], 2.not add
+- tip: res.append(subset.copy)
+- when the index i to n:  add res and resturn
 - Time: O(n(2^n)), Space:O(n)
 
 ### [39. Combination Sum](https://github.com/liangliang1120/leetcode/blob/main/solutions/39-Combination-Sum.py)
