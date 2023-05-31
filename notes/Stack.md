@@ -27,12 +27,13 @@
 - - 3. open parentheses < n: can add open parentheses
 - Time: O((4^n)/(n^0.5)), Space: O(n) [Time:.., Space: for stack]
 
-### [739. Daily Temperatures](https://github.com/liangliang1120/leetcode/blob/main/solutions/22GenerateParentheses.py)
+### [739. Daily Temperatures](https://github.com/liangliang1120/leetcode/blob/main/solutions/739DailyTemperatures.py)
 - noticeing the stack: mootonic decreasing order
 - quick simulation:
 - <img width="583" alt="image" src="https://github.com/liangliang1120/leetcode/assets/35073431/47c819c2-2f1c-49eb-87e7-9e082781a7cb">
-- tip: the stack including the temperature and index
-- 
+- tip: the stack including the temperature and index [for i,t in enumerate(x)] append((i,t))
+- while stack and t > stack[-1].temp: stack.pop; res[stackInd] = i - stackInd(how many days = the index now - pop.index)
+- Time: O(n), Space: O(n)
 
 ### 1628. [Design an Expression Tree With Evaluate Function](https://github.com/liangliang1120/leetcode/blob/main/solutions/Stack_1628.py)
 
