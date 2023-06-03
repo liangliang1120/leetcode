@@ -12,8 +12,15 @@
 - 2.pop, bsf(i+1) === add next num
 - Time: up to O(n(2^n)), Space:O(target) - recursive stack
 
-### [39. Combination Sum](https://github.com/liangliang1120/leetcode/blob/main/solutions/46-Permutations.py)
+### [46. Permutations](https://github.com/liangliang1120/leetcode/blob/main/solutions/46-Permutations.py)
 - use visited, index, subset, res, n = len(nums)
 - if index >= n, res.append(subset.copy())
 - for x in range(n), iterate the visited[x], if not visited, subset.append(nums[x]),backtrack(index+1,update(visited))
 - Time: O(n * n!), Space:O(n)
+
+### [90. Subsets II](https://github.com/liangliang1120/leetcode/blob/main/solutions/90-Subsets-II.py)
+- res.append(subset.copy())
+- nums.sort() first
+- if left side added nums[i], right side should not have this value
+- 2 conditions: 1.subset.appedn(nums[i]), backtrack, pop. 2.while nums[i] not included, backtrack
+- Time: O(n(2^n)), Space:O(n)
