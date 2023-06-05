@@ -3,6 +3,8 @@
 - 2 conditions: 1. add the nums[i], 2.not add
 - tip: res.append(subset.copy)
 - when the index i to n:  add res and resturn
+- method2:
+- res.append(subset.copy());for i in range(start, n): subset.add,backtrack(i+1),subset.pop
 - Time: O(n(2^n)), Space:O(n)
 
 ### [39. Combination Sum](https://github.com/liangliang1120/leetcode/blob/main/solutions/39-Combination-Sum.py)
