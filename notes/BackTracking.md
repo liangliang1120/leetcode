@@ -6,10 +6,11 @@
 - Time: O(n(2^n)), Space:O(n)
 
 ### [39. Combination Sum](https://github.com/liangliang1120/leetcode/blob/main/solutions/39-Combination-Sum.py)
-- if sum(subset) == target: res.append(subset.copy())
-- if i >= n or sum(subset) > target: return === i here represent as the index of num
-- 1.subset add num[i] , bsf(i) === add it self, repeat num
-- 2.pop, bsf(i+1) === add next num
+- nums.sort()
+- backtrack: 
+- - if sum(subset) > target: return; 
+- - if if sum(subset) == target: res.append(subset)
+- - for index in range(begin,n): if sum(subset) > target: break; [subset.append(nums(index);backtrack(index);subset.pop()]
 - Time: up to O(n(2^n)), Space:O(target) - recursive stack
 - - n(2^n): each num can be put into subset, each subset put into res needs O(n)
 
