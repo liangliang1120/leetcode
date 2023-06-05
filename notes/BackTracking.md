@@ -40,7 +40,7 @@
 - for i in range(n): if not visited, update(visited),subset.append(nums[i]),backtrack(), update(visited)
 - Time: O(n * n!), Space:O(n)
 
-### [90. Subsets II](https://github.com/liangliang1120/leetcode/blob/main/solutions/47-Permutations-II.py)
+### [47. Permutations II](https://github.com/liangliang1120/leetcode/blob/main/solutions/47-Permutations-II.py)
 - use visited, index, subset, res, n = len(nums)
 - nums.sort()
 - if len(subset) == n: res.append(subset.copy())
