@@ -9,14 +9,20 @@
 - nums.sort()
 - backtrack: 
 - - if sum(subset) > target: return; 
-- - if if sum(subset) == target: res.append(subset)
-- - for index in range(begin,n): if sum(subset) > target: break; [subset.append(nums(index);backtrack(index);subset.pop()]
+- - if sum(subset) == target: res.append(subset)
+- - for index in range(begin,n): if sum(subset)+nums[index > target: break; [subset.append(nums(index);backtrack(index);subset.pop()]
 - Time: up to O(n(2^n)), Space:O(target) - recursive stack
 - - n(2^n): each num can be put into subset, each subset put into res needs O(n)
 
 ### [40. Combination Sum II](https://github.com/liangliang1120/leetcode/blob/main/solutions/40-Combination-Sum-II.py)
-- method 1: while nums[i] not included, backtrack + subset not in res
-- method 2: for index in range(begin,size) if sum > target: break, if value(nums[index]) == value(begin):continue; append,backtrack,pop
+- nums.sort()
+- backtrack: 
+- - if sum(subset) > target: return; 
+- - if sum(subset) == target: res.append(subset)
+- - for index in range(begin,n): 
+- - - if sum(subset)+nums[index > target: break; 
+- - - if index > begin and nums[index] == nums[index-1]: continue
+- - - [subset.append(nums(index);backtrack(index+1);subset.pop()]
 - Time: up to O(n(2^n)),O(S), S is the length of the solution; Space:O(target)
 
 ### [46. Permutations](https://github.com/liangliang1120/leetcode/blob/main/solutions/46-Permutations.py)
