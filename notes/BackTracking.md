@@ -19,7 +19,7 @@
 - - if sum(subset) == target: res.append(subset)
 - - for index in range(begin,n): 
 - - - if sum(subset)+nums[index > target: break; 
-- - - [subset.append(nums(index);backtrack(index);subset.pop()]
+- - - [subset.append(nums(index);backtrack(index);subset.pop()].   !!!backtrack(index)!!!unlimited number of times!!!
 - Time: up to O(n(2^n)), Space:O(target) - recursive stack
 - - n(2^n): each num can be put into subset, each subset put into res needs O(n)
 
