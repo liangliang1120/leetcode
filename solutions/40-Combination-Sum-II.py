@@ -19,3 +19,27 @@ class Solution:
             backtrack(i + 1)
         backtrack(0)
         return res
+
+    
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        n = len(candidates)
+        res = []
+        subset = []
+        candidates.sort()
+        def backtrack(i):
+            if sum(subset) == target:
+                res.append(subset.copy())
+                return
+
+            for x in range(i, n):
+                if candidates[x] + sum(subset) > target:
+                    break
+                if x > i and candidates[x - 1] == candidates[x]:
+                    continue
+                subset.append(candidates[x])
+                backtrack(x + 1)
+                subset.pop()
+
+        backtrack(0)
+        return res
