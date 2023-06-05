@@ -36,10 +36,15 @@
 
 ### [46. Permutations](https://github.com/liangliang1120/leetcode/blob/main/solutions/46-Permutations.py)
 - use visited, index, subset, res, n = len(nums)
-- if index >= n, res.append(subset.copy())
-- for x in range(n), iterate the visited[x], if not visited, subset.append(nums[x]),backtrack(index+1,update(visited))
+- if len(subset) == n: res.append(subset.copy())
+- for i in range(n): if not visited, update(visited),subset.append(nums[i]),backtrack(), update(visited)
 - Time: O(n * n!), Space:O(n)
 
-
-
-### 
+### [90. Subsets II](https://github.com/liangliang1120/leetcode/blob/main/solutions/47-Permutations-II.py)
+- use visited, index, subset, res, n = len(nums)
+- nums.sort()
+- if len(subset) == n: res.append(subset.copy())
+- for i in range(n): 
+- - if i > 0 and nums[i] == nums[i - 1] and not visited[i - 1]: continue
+- - if not visited, update(visited),subset.append(nums[i]),backtrack(), update(visited)
+- Time: O(n * n!), Space:O(n)
