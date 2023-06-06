@@ -10,16 +10,15 @@ class Solution:
             if k == n - 1:
                 return True
             visited.add((i,j))
-            res = False
+            # res = False
             for di, dj in directions:
                 ni, nj = i + di, j + dj
                 if 0 <= ni < h and 0 <= nj < w:
                     if (ni, nj) not in visited:
                         if check(ni, nj, k + 1):
-                            res = True
-                            break
+                            return True
             visited.remove((i,j))
-            return res
+            return False
 
         for i in range(h):
             for j in range(w):
