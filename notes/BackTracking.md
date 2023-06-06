@@ -48,3 +48,15 @@
 - - if i > 0 and nums[i] == nums[i - 1] and not visited[i - 1]: continue
 - - if not visited, update(visited),subset.append(nums[i]),backtrack(), update(visited)
 - Time: O(n * n!), Space:O(n)
+
+### [79. Word Search](https://github.com/liangliang1120/leetcode/blob/main/solutions/79-Word-Search.py)
+- directions,height,witdth,visited=set()
+- for i,j in positions, check
+- def check(i,j,k):
+- - if board[i][j] != word[k]: false
+- - if k == n - 1: true
+- - visited.add((i,j)), 
+- - for di,dj in directions:0<=ni<h...!!!if (ni.nj) not in visited and check(ni,nj,k+1):return true
+- - visited.remove(i,j)
+- Time: O(M*N*(3^L),M and N:height & width,L is the length of word. each time go to 3 directions
+- Space:O(M*N), for visited
