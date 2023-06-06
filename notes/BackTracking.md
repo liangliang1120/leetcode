@@ -60,3 +60,22 @@
 - - visited.remove(i,j)
 - Time: O(M*N*(3^L),M and N:height & width,L is the length of word. each time go to 3 directions
 - Space:O(M*N), for visited
+
+### [131. Palindrome Partitioning](https://github.com/liangliang1120/leetcode/blob/main/solutions/131-Palindrome-Partitioning.py)
+- res, part, n = len(s),dfs
+- def isPalidrome: 2 pointers
+- dfs:
+- - if i >= n: res.append(part),return
+- - for j in range(i,n): if isPali(s,i,j): part.append,dfs(j+1),part.pop --> if s[i:j] isPali, add in part, then dfs(next),pop for different s[i:j] situation to get next
+- Time: O(n * 2^n), n is the length of s; Space:O(n^2), for the part=[], O(n) for stack,each stack O(n) space
+
+
+### [131. Palindrome Partitioning](https://github.com/liangliang1120/leetcode/blob/main/solutions/131-Palindrome-Partitioning.py)
+
+
+
+
+
+
+
+
