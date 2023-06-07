@@ -30,19 +30,26 @@
 ### [973. K Closest Points to Origin](https://github.com/liangliang1120/leetcode/blob/main/solutions/973-K-Closest-Points-to-Origin.py)
 - 所有的距离加进heap， hp=[]， hp.append(), heapify(hq)
 - while k>0:加前k个进res
-- time:O(nlogn) 也可以只维护前k个O(nlogk)
-- space: O(N),只维护k个的话O(k)
+- time:O(nlogk)维护前k个O(nlogk)
+- space: O(k),维护k个的话O(k)
 
-### 973. [K Closest Points to Origin](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_973.py)
-- big heap, queue = [[ -x*x - y*y, i] for i, (x,y) in enumerate(points[0:k])], heapify
-- for i in range(k, len(points)):heapq.heappush(queue, [dist, i]), heapq.heappop(queue)
-- time:O(nlogk) keep top k
-- space: O(k)
-- sort: points.sort(key=lambda x: (x[0] ** 2 + x[1] ** 2)); return points[:k] - time:O(nlogn) space: O(logn)
+### [215. Kth Largest Element in an Array](https://github.com/liangliang1120/leetcode/blob/main/solutions/215-Kth-Largest-Element-in-an-Array.py)
+- heapify and reverse
+- time:O(nlogn) ,heapify is O(n), delete need O(klogn)
+- space: O(logN)
 
-### 215. [Kth Largest Element in an Array](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_215.py)
-- 
+### [621. Task Scheduler*](https://github.com/liangliang1120/leetcode/blob/main/solutions/621-Task-Scheduler.py)
+- maxHeap for recording the count
+- deque for the pairs of [-cnt, idleTime],cnt: left frequency of this kind of task, when can start this task 
+- while q or maxHeap: 
+- - time +1; 
+- - if not maxHeap: time=q[0][1] else: if cnt q.append([cnt,time + n]) <-- cnt = heapq.heappop(maxHeap) + 1,cnt == 0 means no tasks any more
+- - if q and q[0][1] == time: heapq.heappush(maxHeap,q.popleft()[0]) <-- if can start,q.pop,maxHeap.push
+- time:O(n) ---> log26, add into, count each frequency
+- space: O(n)
 
+### [355. Design Twitter](https://github.com/liangliang1120/leetcode/blob/main/solutions/355-Design-Twitter.py)
+- hashmap, linkedlist,heap
 
 ### 239. [Sliding Window Maximum](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_239.py)
 - (负数，idx)加进q，先只加k个进去，heapify.  
