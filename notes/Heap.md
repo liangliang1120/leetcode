@@ -10,7 +10,7 @@
 - nlargest(n,iter)、nsmallest(n,iter)
 - Return a list with the n largest elements from the dataset defined by iterable.Equivalent to: sorted(iterable, key=key, reverse=True)[:n].
 
-### [703. Kth Largest Element in a Stream](https://github.com/liangliang1120/leetcode/blob/main/solutions/703-Kth-Largest-Element-in-a-Stream.py)
+### [703. Kth Largest Element in a Stream](https://github.com/liangliang1120/leetcode/blob/main/notes/703-Kth-Largest-Element-in-a-Stream.py)
 - heap from small to big
 - time:O(nlogk) 只维护前k个O(nlogk) for initialize, logk for insert
 - space: O(k), 只维护k个的话O(k)
