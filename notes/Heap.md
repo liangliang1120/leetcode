@@ -11,10 +11,21 @@
 - Return a list with the n largest elements from the dataset defined by iterable.Equivalent to: sorted(iterable, key=key, reverse=True)[:n].
 
 ### [703. Kth Largest Element in a Stream](https://github.com/liangliang1120/leetcode/blob/main/notes/703-Kth-Largest-Element-in-a-Stream.py)
+- heapq.heapify(self.queue)
+- heapq.heappush(self.queue, val)
+- heapq.heappop(self.queue)
 - heap from small to big
+- keep k length of the queue, push into, pop out
 - time:O(nlogk) 只维护前k个O(nlogk) for initialize, logk for insert
 - space: O(k), 只维护k个的话O(k)
 
+### [1046. Last Stone Weight](https://github.com/liangliang1120/leetcode/blob/main/notes/1046-Last-Stone-Weight.py)
+- heapify(stone)
+- x, y = heapq.heappop(stones)
+- if x - y > 0: heapq.heappush(stones, temp)
+- return -stones[0] if len(stones) == 1 else 0
+- time:O(nlogn) get a number from heap is O(logn),get n - 1 times
+- space: O(n)
 
 ### 973. [K Closest Points to Origin](https://github.com/liangliang1120/leetcode/blob/main/solutions/Heap_973.py)
 - 所有的距离加进heap， hp=[]， hp.append(), heapify(hq)
