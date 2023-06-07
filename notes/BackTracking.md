@@ -65,12 +65,18 @@
 - res, part, n = len(s),dfs
 - def isPalidrome: 2 pointers
 - dfs:
-- - if i >= n: res.append(part),return
+- - if i >= n: res.append(part.copy),return
 - - for j in range(i,n): if isPali(s,i,j): part.append,dfs(j+1),part.pop --> if s[i:j] isPali, add in part, then dfs(next),pop for different s[i:j] situation to get next
 - Time: O(n * 2^n), n is the length of s; Space:O(n^2), for the part=[], O(n) for stack,each stack O(n) space
 
 
-### [131. Palindrome Partitioning](https://github.com/liangliang1120/leetcode/blob/main/solutions/131-Palindrome-Partitioning.py)
+### [17. Letter Combinations of a Phone Number](https://github.com/liangliang1120/leetcode/blob/main/solutions/17-Letter-Combinations-of-a-Phone-Number.py)
+- backtrack(i) from index 0 to len(digits)
+- phoneMap[digits[index]]
+- Time: O(3^m * 4^n), m:the num corresponding to 3chars; n:the num corresponding to 4chars 
+- Space:O(m+n): for recursion
+
+
 
 
 
