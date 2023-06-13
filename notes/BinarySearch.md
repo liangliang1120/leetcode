@@ -46,6 +46,7 @@ return -1
 - Time: O(logn), Space: O(1)
 
 ### [981. Time Based Key-Value Store](https://github.com/liangliang1120/leetcode/blob/main/solutions/0981-Time-Based-Key-Value-Store.py)
-										 
+- binary search find the time < target_time
+- Time: O(logn), Space: O(n)
 
 
