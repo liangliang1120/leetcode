@@ -33,3 +33,19 @@ return -1
 - mid = start + (end - start) // 2; if can_finish(piles,mid,h): end = mid 
 - Time: O(nlogm), n = len(piles),m = max(piles), binary search: logm
 - Space: O(1)
+
+
+### [153. Find Minimum in Rotated Sorted Array](https://github.com/liangliang1120/leetcode/blob/main/solutions/0153-Find-Minimum-in-Rotated-Sorted-Array.py)
+- if already sorted: return nums[0]
+- binary search
+- return min(start,end)
+- Time: O(logn), Space: O(1)
+
+### [33. Search in Rotated Sorted Array](https://github.com/liangliang1120/leetcode/blob/main/solutions/0033-Search-in-Rotated-Sorted-Array.py)
+- when should move the start pointer to mid? 3 conditions: s<=m<t, t<m<=s, m<t<s
+- Time: O(logn), Space: O(1)
+
+### [981. Time Based Key-Value Store](https://github.com/liangliang1120/leetcode/blob/main/solutions/0981-Time-Based-Key-Value-Store.py)
+										 
+
+
