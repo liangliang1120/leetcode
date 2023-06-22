@@ -39,4 +39,7 @@
 - Time: O(n), Space: O(1)
 
 
+### [146. LRU Cache](https://github.com/liangliang1120/leetcode/blob/main/solutions/0146-LRU-Cache.py)
+- d
+
 
