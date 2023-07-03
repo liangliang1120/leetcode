@@ -7,4 +7,5 @@
 - Time: O(N), Space:O(n)
 
 ### [104. Maximum Depth of Binary Tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/0104-Maximum-Depth-of-Binary-Tree.py)
-- Time: O(N), Space:O(height)
+- Time: O(N)
+- DFS Space:O(height), BFS Space: worest case O(n)
