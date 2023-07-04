@@ -70,8 +70,9 @@ list dfs(root,res): root ==null:return , dfs(root.left,res), res.add(val), dfs(r
 - time: O(n), space: O(height)(栈空间：递归深度）
 
 
-
-
+## [110. Balanced Binary Tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/0110-Balanced-Binary-Tree.py)
+- the same method as 104 for depth -> diff depth
+- abs(height_diff) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
 
 
 
