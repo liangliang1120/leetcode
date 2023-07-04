@@ -46,18 +46,21 @@ dfs注意点：如果是0，直接返回；i 在外面循环的时候对应n,那
 
 # 🌲DFS
 ## 104 [Maxmum depth of binary tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/DFS_104.py)
-maxDepth作为递归函数，max(左子树最大深度，右子树最大深度) + 1
-time: O(n), space: O(height)(栈空间：递归深度）
+- if not root: 0; left_d=dfs(root.left); right_d=dfs(root.right);return max(left_d, right_d) + 1
+- Time: O(N)
+- DFS Space:O(height), BFS Space: worest case O(n)
 
 ## 124. [Binary Tree Maximum Path Sum](https://github.com/liangliang1120/leetcode/blob/main/solutions/DFS_124.py)
-res负无穷，traversal:左边返回max(0,traveral(root.left));右边同理；res=max(res,left+right+root.val);return max(0, leftSum, rightSum) + root.val
-
+- self.res = float("-inf")
+- def max_sum_oneside(node):return max(0, max(left_s, right_s) + node.val)
+- self.res = max(self.res, left_s + right_s + node.val)
+- time: O(n), space: O(height)(栈空间：递归深度）
 ## 110. [Balanced Binary Tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/DFS_124.py)
 - dfs递归求height，当前树的高度=max(左子树高度，右子树高度)+1。heigt_diff判断，并且递归左右子树判断
 - max(height(root.left), height(root.right)) + 1
 
 
-## 94 binary tree inorder traversal
+## [94 binary tree inorder traversal](https://github.com/liangliang1120/leetcode/blob/main/solutions/0094-Binary-Tree-Inorder-Traversal.py)
 list dfs(root,res): root ==null:return , dfs(root.left,res), res.add(val), dfs(root.right, res)
 
 ## [543. Diameter of Binary Tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/0543-Diameter-of-Binary-Tree.py)
@@ -66,9 +69,7 @@ list dfs(root,res): root ==null:return , dfs(root.left,res), res.add(val), dfs(r
 - return self.d - 1
 - time: O(n), space: O(height)(栈空间：递归深度）
 
-## 104. Maximum Depth of Binary Tree
-直接dfs， 返回左右子树较长的半径 max(left_r, right_r)
-time: O(n), space: O(height)(栈空间：递归深度）
+
 
 
 
