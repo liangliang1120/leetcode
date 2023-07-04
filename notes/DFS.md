@@ -60,11 +60,11 @@ res负无穷，traversal:左边返回max(0,traveral(root.left));右边同理；r
 ## 94 binary tree inorder traversal
 list dfs(root,res): root ==null:return , dfs(root.left,res), res.add(val), dfs(root.right, res)
 
-## 543. Diameter of Binary Tree
-全局变量 self.d 
-dfs(root): if not root: 0; 左半径left_d=dfs(root.left); 右半径right_d=dfs(root.right); 更新直径self.d = max(self.d, left_d +right_d+1); return 半径max(left_d, right_d) + 1
-return self.d - 1
-time: O(n), space: O(height)(栈空间：递归深度）
+## [543. Diameter of Binary Tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/0543-Diameter-of-Binary-Tree.py)
+- 全局变量 self.d 
+- dfs(root): if not root: 0; 左半径left_d=dfs(root.left); 右半径right_d=dfs(root.right); 更新直径self.d = max(self.d, left_d +right_d+1); return 半径max(left_d, right_d) + 1
+- return self.d - 1
+- time: O(n), space: O(height)(栈空间：递归深度）
 
 ## 104. Maximum Depth of Binary Tree
 直接dfs， 返回左右子树较长的半径 max(left_r, right_r)
