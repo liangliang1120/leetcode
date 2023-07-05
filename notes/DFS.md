@@ -74,7 +74,8 @@ list dfs(root,res): root ==null:return , dfs(root.left,res), res.add(val), dfs(r
 - the same method as 104 for depth -> diff depth
 - abs(height_diff) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
 
-
+## [100. Same Tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/0100-Same-Tree.py)
+- return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
 # BackTrack
