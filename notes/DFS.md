@@ -77,7 +77,11 @@ list dfs(root,res): root ==null:return , dfs(root.left,res), res.add(val), dfs(r
 ## [100. Same Tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/0100-Same-Tree.py)
 - return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
+## [572. Subtree of Another Tree](https://github.com/liangliang1120/leetcode/blob/main/solutions/0572-Subtree-of-Another-Tree.py)
+- return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+- isSameTree(root, subRoot) or self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
 
+  
 # BackTrack
 - DFS vs Backtrack 不同: Backtrack有剪枝，DFS是暴力，Backtrack是在暴力法上的优化
 - 问题类型：  1.求所有路径。  2.combination/permutation 组合/排列。
