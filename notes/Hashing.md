@@ -3,13 +3,13 @@ brute force:O(n^2), O(1)
 sort: O(nlogn) O(1)
 hash:O(n) O(n)
 
-## [242. Valid Anagram](https://github.com/liangliang1120/leetcode/blob/main/solutions/HashTable_242.py)
+## [242. Valid Anagram](https://github.com/liangliang1120/leetcode/blob/main/solutions/0242-Valid-Anagram.py)
 hash:O(n) O(n)
 
 ## 128. Longest Consecutive Sequence
 set,if i-1 in set:continue else:while i+1 in set:curr_len+1,max(curr_len,max_len),return max_len
 
-## [1. Two Sum](https://github.com/liangliang1120/leetcode/blob/main/solutions/hashing_1)
+## [1. Two Sum](https://github.com/liangliang1120/leetcode/blob/main/solutions/0001-Two-Sum.py)
 - 存hashtable {num:index}
 - for i,n in enumerate(nums): 
 - if target - n in hashtable:
