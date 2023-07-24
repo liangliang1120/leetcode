@@ -97,15 +97,15 @@ class Solution {
                 count[c - 'a']++;
             }
             String key = Arrays.toString(count);
-            # char[] array = str.toCharArray();
-            # Arrays.sort(array
+            # char[] array = s.toCharArray();
+            # Arrays.sort(array);
             # String key = new String(array);
 
             anagramMap.putIfAbsent(key, new ArrayList<>());
             anagramMap.get(key).add(s);
-            # List<String> list = map.getOrDefault(key, new ArrayList<String>());
-            # list.add(str);
-            # map.put(key, list);
+            # List<String> list = anagramMapmap.getOrDefault(key, new ArrayList<String>());
+            # list.add(s);
+            # anagramMapmap.put(key, list);
 
         }
         return new ArrayList<>(anagramMap.values());
