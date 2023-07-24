@@ -26,7 +26,7 @@ left < right and 右指针一直和前面的相等，右指针--，
 3）三数之和>0 left++;
 time O(N^2) space(N)
 
-## 49 [Group Anagrams](https://github.com/liangliang1120/leetcode/blob/main/solutions/Sort_49.py)
+## 49 [Group Anagrams](https://github.com/liangliang1120/leetcode/blob/main/solutions/0049-Group-Anagrams.py)
 - brute force Time:O(m*nlogn)
 - defaultdict（list)  "".join(sorted(list(s))) 
 - mp[key].append(s),time O(nklogk) space O(nk) 字符串数量，k字符串最大长度
