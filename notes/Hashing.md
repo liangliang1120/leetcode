@@ -35,9 +35,9 @@ time O(N^2) space(N)
 - time: O(mn26),M is the number of words,n is the average length of a word,
 - space: O(mk), M is the number of words,k is the longest length of the words in str
 
-## 347 [Top K Frequent Elements](https://github.com/liangliang1120/leetcode/blob/main/solutions/347Top_K_Frequent_Elements.py)
-key is the frequency, value is the numbers
-Time: O(n), Space: O(n)
+## [347 Top K Frequent Elements](https://github.com/liangliang1120/leetcode/blob/main/solutions/0347-Top-K-Frequent-Elements.py)
+- count hashmap, frequency hashmap, from top frequency to 0 for loop to add res untill the end
+- Time: O(n), Space: O(n)
 
 
 ## [36. Valid Sudoku](https://github.com/liangliang1120/leetcode/blob/main/solutions/36ValidSudoku.py)
